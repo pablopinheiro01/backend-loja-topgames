@@ -23,19 +23,13 @@ git push
 
 A base de dados que estou utilizando:
 
-mysql> desc pedidos
-    -> ;
-+------------+---------------+------+-----+---------+----------------+
-| Field      | Type          | Null | Key | Default | Extra          |
-+------------+---------------+------+-----+---------+----------------+
-| id         | int(11)       | NO   | PRI | NULL    | auto_increment |
-| valor      | decimal(10,2) | NO   |     | NULL    |                |
-| titulo     | varchar(20)   | NO   |     | NULL    |                |
-| dataPedido | date          | NO   |     | NULL    |                |
-| descricao  | text          | YES  |     | NULL    |                |
-+------------+---------------+------+-----+---------+----------------+
-5 rows in set (0.03 sec)
-
 CREATE DATABASE lojatopgames;
 
 CREATE TABLE pedidos ( id int(11) NOT NULL AUTO_INCREMENT, valor decimal(10,2) NOT NULL,  titulo varchar(20) NOT NULL, dataPedido DATE NOT NULL, descricao text, PRIMARY KEY (id) );
+
+Dados configurados dentro do serviço:
+    host: 'localhost',
+    port: 3306,
+    user: 'nodeuser',
+    password: 'node@node',
+    database: 'lojatopgames'
