@@ -1,0 +1,28 @@
+CREATE DATABASE lojatopgames;
+
+CREATE TABLE pedidos ( id int(11) NOT NULL AUTO_INCREMENT, valor decimal(10,2) NOT NULL,  titulo varchar(20) NOT NULL, dataPedido DATE NOT NULL, descricao text, PRIMARY KEY (id) );
+
+#Com o usuario root
+- criando usuario, habilitando para o mysqlnode e dando permissao
+
+create user nodeuser@localhost identified by 'node@node';
+
+alter user 'nodeuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'node@node';
+
+--tabela de acesso
+grant all privileges on lojatopgames.* to nodeuser@localhost;
+
+
+mysql> desc pedidos
+    -> ;
++------------+---------------+------+-----+---------+----------------+
+| Field      | Type          | Null | Key | Default | Extra          |
++------------+---------------+------+-----+---------+----------------+
+| id         | int(11)       | NO   | PRI | NULL    | auto_increment |
+| valor      | decimal(10,2) | NO   |     | NULL    |                |
+| titulo     | varchar(20)   | NO   |     | NULL    |                |
+| dataPedido | date          | NO   |     | NULL    |                |
+| descricao  | text          | YES  |     | NULL    |                |
++------------+---------------+------+-----+---------+----------------+
+5 rows in set (0.03 sec)
+
